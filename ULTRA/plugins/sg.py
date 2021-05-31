@@ -25,9 +25,9 @@ async def _(event):
     async with event.client.conversation(chat) as conv:
           try:     
               #await conv.send_message("/search_id {}".format(sender))
-              response1 = conv.wait_event(events.NewMessage(incoming=True,from_users=461843263))
-              response2 = conv.wait_event(events.NewMessage(incoming=True,from_users=461843263))
-              response3 = conv.wait_event(events.NewMessage(incoming=True,from_users=461843263))
+              response1 = conv.wait_event(NewMessage(incoming=True,from_users=461843263))
+              response2 = conv.wait_event(NewMessage(incoming=True,from_users=461843263))
+              response3 = conv.wait_event(NewMessage(incoming=True,from_users=461843263))
               await conv.send_message("/search_id {}".format(sender))
               response1 = await response1 
               response2 = await response2 
@@ -42,12 +42,3 @@ async def _(event):
              await event.client.send_message(event.chat_id, response2.message)
              
              await event.client.send_message(event.chat_id, response3.message)
-
-
-CMD_HELP.update(
-    {
-        "sg": "__**PLUGIN NAME :** sg__\
-    \n\n📌** CMD ★** `.sg`\
-    \n**USAGE   ★  **Retrieves the name and username history of the replied user even if he has forwarded message privacy..! This may not always work as perfect it should be..if doesn't then try once again.."
-    }
-)
